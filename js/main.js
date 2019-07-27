@@ -27,7 +27,7 @@ let board, turn, winner;
 
 /*------Event Listeners------*/
 
-
+document.querySelector('section.board').addEventListener('click', onClick);
 
 
 
@@ -43,6 +43,12 @@ function init() {
     winner = null;
     
     render();
+}
+
+
+function onClick(evt){
+    let squareNum = parseInt(evt.target.id.replace('sq',''));
+    console.log(squareNum);
 }
 
 
