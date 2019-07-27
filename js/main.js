@@ -37,9 +37,7 @@ init();
 
 function init() {
     board = [
-        ['null', 'null', 'null'],
-        ['null', 'null', 'null'],
-        ['null', 'null', 'null'],
+        ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null']
     ];
     turn = 1
     winner = null;
@@ -47,6 +45,11 @@ function init() {
     render();
 }
 
+
+function getWinner(){
+    //run three functions (chkRow, chkCol, chkDiag) to determine if there is a winner
+    //(winner would be assigned if absolute value of row/col/diag total is 3)
+}
 function render(){
 
 }
