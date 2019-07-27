@@ -13,6 +13,7 @@ const SQUARE_STATE = {
 /*------Variables (state)------*/
 
 let board, turn, winner;
+let turnCount = 1;
 
 
 
@@ -38,7 +39,7 @@ function init() {
     board = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'];
     turn = 1;
     winner = null;
-    gameStatus.textContent = "It is X's turn!"
+    gameStatus.textContent = "It is X's turn!";
     
     // render();
 }
@@ -48,14 +49,24 @@ function onClick(evt){
         let squareIdx = parseInt(evt.target.id.replace('sq',''));
     if (board[squareIdx] !== 'null') return;
     console.log(squareIdx);
+    getWinner();
     render(squareIdx);
 
 }
 
 
 function getWinner(){
-    //run three functions (chkRow, chkCol, chkDiag) to determine if there is a winner
-    //(winner would be assigned if absolute value of row/col/diag total is 3)
+    let winner = null;
+    if (false){
+        gameStatus.textContent = "X wins the game!";
+    } else if (false){
+        gameStatus.textContent = "O wins the game!";
+    } else if (turnCount === 10){
+        gameStatus.textContent = "This game is a draw!";
+        console.log("Count hit"); 
+    }
+    
+    
 }
 
 
@@ -75,4 +86,6 @@ function render(squareIdx){
         gameStatus.textContent = "It is X's turn!"
 }
     turn *= -1;
+    turnCount++;
+    getWinner();
 }
