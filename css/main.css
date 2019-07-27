@@ -21,4 +21,7 @@ section.board {
 section.board div {
     /* background-color: black; */
     border: 3px solid black;
+    font-size: 9vmin;
+    text-align: center;
+    vertical-align: middle;
 }
