@@ -59,9 +59,15 @@ function getWinner(){
 }
 function render(squareIdx){
     console.log(squareIdx);    
+    setLetter = document.getElementById(`sq${squareIdx}`);
     document.getElementById(`sq${squareIdx}`).style.backgroundColor = SQUARE_STATE[turn];
     console.log('turn' + turn);
     console.log(SQUARE_STATE[turn]);
     board[squareIdx] = turn;
+    if (turn === 1) {
+        setLetter.textContent = "X";
+    }   else {
+        setLetter.textContent = "O";
+}
     turn *= -1;
 }
