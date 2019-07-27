@@ -4,9 +4,9 @@ console.log(test);
 /*------Constants------*/
 
 const SQUARE_STATE = {
-    'null' = 'white',
-    '1' = 'green',
-    '-1' = 'yellow'
+    'null': 'white',
+    '1': 'green',
+    '-1': 'yellow'
 };
 
 
@@ -44,11 +44,9 @@ function init() {
     turn = 1
     winner = null;
     
-    render(){
-
-    }
+    render();
 }
 
 function render(){
-    
+
 }
