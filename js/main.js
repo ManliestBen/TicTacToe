@@ -1,5 +1,4 @@
-let test = "Test";
-console.log(test);
+
 
 /*------Constants------*/
 
@@ -45,7 +44,7 @@ function init() {
 
 
 function onClick(evt){
-    let squareIdx = parseInt(evt.target.id.replace('sq',''));
+        let squareIdx = parseInt(evt.target.id.replace('sq',''));
     if (board[squareIdx] !== 'null') return;
     console.log(squareIdx);
     render(squareIdx);

@@ -25,3 +25,7 @@ div {
     text-align: center;
     vertical-align: middle;
 }
+
+button {
+    margin: 20px;
+}
