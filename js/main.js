@@ -46,6 +46,7 @@ function init() {
 
 function onClick(evt){
     let squareIdx = parseInt(evt.target.id.replace('sq',''));
+    if (board[squareIdx] !== 'null') return;
     console.log(squareIdx);
     render(squareIdx);
 
@@ -57,7 +58,6 @@ function getWinner(){
     //(winner would be assigned if absolute value of row/col/diag total is 3)
 }
 function render(squareIdx){
-    
     console.log(squareIdx);    
     document.getElementById(`sq${squareIdx}`).style.backgroundColor = SQUARE_STATE[turn];
     console.log('turn' + turn);
