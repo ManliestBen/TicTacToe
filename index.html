@@ -12,7 +12,10 @@
 <body>
     <h1>Tic-Tac-Toe</h1>
     <h2 id="message">This is where the message will be!</h2>
-
+    <section>
+        <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" id="colorA">X's Color</button>  <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" id="colorB">O's Color</button>
+    </section>
+    
     <section class="board">
         <div id="sq0"></div>
         <div id="sq1"></div>
@@ -27,8 +30,8 @@
         <div id="sq8"></div>
     </section>
 
-    <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" name="button" onclick='location.reload();' id="button">Reset</button>
+    <button class="button" name="button" onclick='location.reload();' id="button">Reset</button>
 
-
+<p></p>
 </body>
 </html>

@@ -1,12 +1,6 @@
 
 
-/*------Constants------*/
 
-const SQUARE_STATE = {
-    'null': 'white',
-    '1': 'green',       // 1 is X
-    '-1': 'yellow'      // -1 is O
-};
 
 
 
@@ -15,6 +9,16 @@ const SQUARE_STATE = {
 let board, turn, winner;
 let turnCount = 1;
 let isWinner = false;
+
+
+
+
+// This was commented out in order to provide functionality for the color picker.
+// SQUARE_STATE = {
+//     'null': 'white',
+//     '1': 'red',       // 1 is X
+//     '-1': 'blue',     // -1 is O
+// };
 
 
 
@@ -37,7 +41,7 @@ document.querySelector('section.board').addEventListener('click', onClick);
 init();
 
 function setTextColor(picker) {
-    document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+    document.getElementsByTagName('p')[0].style.color = '#' + picker.toString()
 }
 
 function init() {
@@ -84,13 +88,16 @@ function getWinner(){
 function render(squareIdx){
     if (isWinner === false) {
         setLetter = document.getElementById(`sq${squareIdx}`);
-        document.getElementById(`sq${squareIdx}`).style.backgroundColor = SQUARE_STATE[turn];
+        // document.getElementById(`sq${squareIdx}`).style.backgroundColor = SQUARE_STATE[turn]; // removed to enable the color picker functionality
         board[squareIdx] = turn;
         if (turn === 1) {
             setLetter.textContent = "X";
+            document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorA").style.backgroundColor;
             gameStatus.textContent = "It is O's turn!"
         }   else {
             setLetter.textContent = "O";
+            document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorB").style.backgroundColor;
+            console.log(colorO);
             gameStatus.textContent = "It is X's turn!"
     }
     turn *= -1;
