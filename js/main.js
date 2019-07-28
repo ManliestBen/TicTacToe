@@ -1,5 +1,4 @@
-
-
+/*------Constants------*/
 
 
 
@@ -13,6 +12,7 @@ var audioStart = new Audio('audio/MELODY_2.mp3');
 var audioX = new Audio('audio/X.mp3');
 var audioO = new Audio('audio/O.mp3');
 var audioWin = new Audio('audio/YOU_WIN.mp3');
+
 //audio.play();
 
 
@@ -74,23 +74,23 @@ function getWinner(){
     let winner = null;
     if (board[0]+board[1]+board[2] === 3 ||  board[3]+board[4]+board[5] === 3 ||  board[6]+board[7]+board[8] === 3 ||  board[0]+board[3]+board[6] === 3 ||  board[1]+board[4]+board[7] === 3 ||  board[2]+board[5]+board[8] === 3 ||  board[0]+board[4]+board[8] === 3 ||  board[2]+board[4]+board[6] === 3){
         gameStatus.textContent = "X wins the game";
-        audioWin.play();
-        document.getElementById("board").className += " hvr-buzz";
+        setTimeout(function(){audioWin.play();},1000);
+        document.getElementById("board").className += " hvr-buzz-out";
         confetti.start(1500);
         isWinner = true;
     } 
     
     if (board[0]+board[1]+board[2] === -3 ||  board[3]+board[4]+board[5] === -3 ||  board[6]+board[7]+board[8] === -3 ||  board[0]+board[3]+board[6] === -3 ||  board[1]+board[4]+board[7] === -3 ||  board[2]+board[5]+board[8] === -3 ||  board[0]+board[4]+board[8] === -3 ||  board[2]+board[4]+board[6] === -3){
         gameStatus.textContent = "O wins the game";
-        audioWin.play();
-        document.getElementById("board").className += " hvr-buzz";
+        setTimeout(function(){audioWin.play();},1000);
+        document.getElementById("board").className += " hvr-buzz-out";
         confetti.start(1500);
         isWinner = true;
     }
     
     if (turnCount === 10){
         gameStatus.textContent = "This game is a draw";
-        document.getElementById("board").className += " hvr-buzz";
+        document.getElementById("board").className += " hvr-buzz-out";
         isWinner = true;
     }
     
@@ -108,12 +108,12 @@ function render(squareIdx){
             setLetter.textContent = "X";
             audioX.play();
             document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorA").style.backgroundColor;
-            gameStatus.textContent = "It is O's turn:"
+            gameStatus.textContent = "It is O's turn"
         }   else {
             setLetter.textContent = "O";
             audioO.play();
             document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorB").style.backgroundColor;
-            gameStatus.textContent = "It is X's turn:"
+            gameStatus.textContent = "It is X's turn"
     }
     turn *= -1;
     turnCount++;
