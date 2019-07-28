@@ -5,13 +5,13 @@
 ### I added the following, beyond the bonus requirements of the project:
 - A new font
 - Button hover effects
-- Animations for
+- Animations for:
     - Game title
     - Board initialization
 - End-game confetti (on a win)
 - Color picker for each player
 - Can't input once a game is won/tied
-- Audio events for 
+- Audio events for: 
     - Game start
     - Player win
     - Player turn
