@@ -7,6 +7,8 @@
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="css/hover-min.css" rel="stylesheet" media="all">
+
     <script src="js/jscolor.js"></script>
     <script defer src="js/main.js"></script>
 </head>
@@ -17,7 +19,7 @@
         <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" id="colorA">X's Color</button>  <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" id="colorB">O's Color</button>
     </section>
     
-    <section class="board">
+    <section class="board" id="board">
         <div id="sq0"></div>
         <div id="sq1"></div>
         <div id="sq2"></div>
@@ -31,7 +33,7 @@
         <div id="sq8"></div>
     </section>
 
-    <button class="button" name="button" onclick='location.reload();' id="button">Reset</button>
+    <button name="button" onclick='location.reload();' id="button">Reset</button>
 
 <p></p>
 </body>
