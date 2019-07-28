@@ -36,6 +36,10 @@ document.querySelector('section.board').addEventListener('click', onClick);
 
 init();
 
+function setTextColor(picker) {
+    document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+}
+
 function init() {
     board = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'];
     turn = 1;
