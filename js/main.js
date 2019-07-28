@@ -9,6 +9,11 @@
 let board, turn, winner;
 let turnCount = 1;
 let isWinner = false;
+var audioStart = new Audio('audio/MELODY_2.mp3');
+var audioX = new Audio('audio/X.mp3');
+var audioO = new Audio('audio/O.mp3');
+var audioWin = new Audio('audio/YOU_WIN.mp3');
+//audio.play();
 
 
 
@@ -40,6 +45,8 @@ document.querySelector('section.board').addEventListener('click', onClick);
 
 init();
 
+audioStart.play();
+
 function setTextColor(picker) {
     document.getElementsByTagName('p')[0].style.color = '#' + picker.toString()
 }
@@ -48,7 +55,7 @@ function init() {
     board = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'];
     turn = 1;
     winner = null;
-    gameStatus.textContent = "It is X's turn!";
+    gameStatus.textContent = "It is X's turn";
     
     // render();
 }
@@ -66,21 +73,23 @@ function onClick(evt){
 function getWinner(){
     let winner = null;
     if (board[0]+board[1]+board[2] === 3 ||  board[3]+board[4]+board[5] === 3 ||  board[6]+board[7]+board[8] === 3 ||  board[0]+board[3]+board[6] === 3 ||  board[1]+board[4]+board[7] === 3 ||  board[2]+board[5]+board[8] === 3 ||  board[0]+board[4]+board[8] === 3 ||  board[2]+board[4]+board[6] === 3){
-        gameStatus.textContent = "X wins the game!";
+        gameStatus.textContent = "X wins the game";
+        audioWin.play();
         document.getElementById("board").className += " hvr-buzz";
         confetti.start(1500);
         isWinner = true;
     } 
     
     if (board[0]+board[1]+board[2] === -3 ||  board[3]+board[4]+board[5] === -3 ||  board[6]+board[7]+board[8] === -3 ||  board[0]+board[3]+board[6] === -3 ||  board[1]+board[4]+board[7] === -3 ||  board[2]+board[5]+board[8] === -3 ||  board[0]+board[4]+board[8] === -3 ||  board[2]+board[4]+board[6] === -3){
-        gameStatus.textContent = "O wins the game!";
+        gameStatus.textContent = "O wins the game";
+        audioWin.play();
         document.getElementById("board").className += " hvr-buzz";
         confetti.start(1500);
         isWinner = true;
     }
     
     if (turnCount === 10){
-        gameStatus.textContent = "This game is a draw!";
+        gameStatus.textContent = "This game is a draw";
         document.getElementById("board").className += " hvr-buzz";
         isWinner = true;
     }
@@ -97,12 +106,14 @@ function render(squareIdx){
         board[squareIdx] = turn;
         if (turn === 1) {
             setLetter.textContent = "X";
+            audioX.play();
             document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorA").style.backgroundColor;
-            gameStatus.textContent = "It is O's turn!"
+            gameStatus.textContent = "It is O's turn:"
         }   else {
             setLetter.textContent = "O";
+            audioO.play();
             document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorB").style.backgroundColor;
-            gameStatus.textContent = "It is X's turn!"
+            gameStatus.textContent = "It is X's turn:"
     }
     turn *= -1;
     turnCount++;
