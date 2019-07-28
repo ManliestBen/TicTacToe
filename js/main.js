@@ -97,7 +97,6 @@ function render(squareIdx){
         }   else {
             setLetter.textContent = "O";
             document.getElementById(`sq${squareIdx}`).style.backgroundColor = document.getElementById("colorB").style.backgroundColor;
-            console.log(colorO);
             gameStatus.textContent = "It is X's turn!"
     }
     turn *= -1;
