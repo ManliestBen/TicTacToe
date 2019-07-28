@@ -67,6 +67,7 @@ function getWinner(){
     let winner = null;
     if (board[0]+board[1]+board[2] === 3 ||  board[3]+board[4]+board[5] === 3 ||  board[6]+board[7]+board[8] === 3 ||  board[0]+board[3]+board[6] === 3 ||  board[1]+board[4]+board[7] === 3 ||  board[2]+board[5]+board[8] === 3 ||  board[0]+board[4]+board[8] === 3 ||  board[2]+board[4]+board[6] === 3){
         gameStatus.textContent = "X wins the game!";
+        document.getElementById("board").className += " hvr-buzz";
         isWinner = true;
     } 
     
@@ -78,6 +79,7 @@ function getWinner(){
     
     if (turnCount === 10){
         gameStatus.textContent = "This game is a draw!";
+        document.getElementById("board").className += " hvr-buzz";
         isWinner = true;
     }
     
