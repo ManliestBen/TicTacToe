@@ -49,8 +49,9 @@ function setTextColor(picker) {
 }
 
 function init() {
-    audioStart.play();
+    // audioStart.play();
     board = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'];
+    setTimeout(function(){audioStart.play();},1000);
     turn = 1;
     winner = null;
     gameStatus.textContent = "It is X's turn";
