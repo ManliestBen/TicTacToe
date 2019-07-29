@@ -1,5 +1,8 @@
 /*------Constants------*/
-
+const audioStart = new Audio('audio/MELODY_2.mp3');
+const audioX = new Audio('audio/X.mp3');
+const audioO = new Audio('audio/O.mp3');
+const audioWin = new Audio('audio/YOU_WIN.mp3');
 
 
 
@@ -8,12 +11,6 @@
 let board, turn, winner;
 let turnCount = 1;
 let isWinner = false;
-var audioStart = new Audio('audio/MELODY_2.mp3');
-var audioX = new Audio('audio/X.mp3');
-var audioO = new Audio('audio/O.mp3');
-var audioWin = new Audio('audio/YOU_WIN.mp3');
-
-//audio.play();
 
 
 
@@ -45,13 +42,14 @@ document.querySelector('section.board').addEventListener('click', onClick);
 
 init();
 
-audioStart.play();
+
 
 function setTextColor(picker) {
     document.getElementsByTagName('p')[0].style.color = '#' + picker.toString()
 }
 
 function init() {
+    audioStart.play();
     board = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null'];
     turn = 1;
     winner = null;
@@ -72,7 +70,9 @@ function onClick(evt){
 
 function getWinner(){
     let winner = null;
-    if (board[0]+board[1]+board[2] === 3 ||  board[3]+board[4]+board[5] === 3 ||  board[6]+board[7]+board[8] === 3 ||  board[0]+board[3]+board[6] === 3 ||  board[1]+board[4]+board[7] === 3 ||  board[2]+board[5]+board[8] === 3 ||  board[0]+board[4]+board[8] === 3 ||  board[2]+board[4]+board[6] === 3){
+    if (board[0]+board[1]+board[2] === 3 ||  board[3]+board[4]+board[5] === 3 ||  board[6]+board[7]+board[8] === 3 ||  
+        board[0]+board[3]+board[6] === 3 ||  board[1]+board[4]+board[7] === 3 ||  board[2]+board[5]+board[8] === 3 ||  
+        board[0]+board[4]+board[8] === 3 ||  board[2]+board[4]+board[6] === 3){
         gameStatus.textContent = "X wins the game";
         setTimeout(function(){audioWin.play();},1000);
         document.getElementById("board").className += " hvr-buzz-out";
@@ -80,7 +80,9 @@ function getWinner(){
         isWinner = true;
     } 
     
-    if (board[0]+board[1]+board[2] === -3 ||  board[3]+board[4]+board[5] === -3 ||  board[6]+board[7]+board[8] === -3 ||  board[0]+board[3]+board[6] === -3 ||  board[1]+board[4]+board[7] === -3 ||  board[2]+board[5]+board[8] === -3 ||  board[0]+board[4]+board[8] === -3 ||  board[2]+board[4]+board[6] === -3){
+    if (board[0]+board[1]+board[2] === -3 ||  board[3]+board[4]+board[5] === -3 ||  board[6]+board[7]+board[8] === -3 ||  
+        board[0]+board[3]+board[6] === -3 ||  board[1]+board[4]+board[7] === -3 ||  board[2]+board[5]+board[8] === -3 ||  
+        board[0]+board[4]+board[8] === -3 ||  board[2]+board[4]+board[6] === -3){
         gameStatus.textContent = "O wins the game";
         setTimeout(function(){audioWin.play();},1000);
         document.getElementById("board").className += " hvr-buzz-out";
